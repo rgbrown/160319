@@ -1,0 +1,109 @@
+\part{Preliminaries}
+\chapter{Introduction}
+In this course, you are going to learn a lot about mathematical modelling.
+The first half of the course is concerned with filling in some of the
+important gaps in your mathematical toolkit.  
+
+We are going to largely restrict ourselves to modelling using Ordinary
+Differential Equations (ODEs). We can learn how maths can be applied
+effectively in a great many different scenarios using ODEs, and plus you
+already have some prior exposure to these, so it's not all new! 
+
+Now, probably your experience of differential equations has been largely
+constrained to finding analytical solutions to them - given a problem,
+you've searched for an appropriate method to solve it, perhaps separation
+of variables or something more exotic, and then used all of the provided
+information about your problem to come up with a solution. This is but one
+of three approaches that we will use for differential equations, and the
+one that we will use the least! The other two are 
+\begin{itemize}
+    \item Graphical methods
+    \item Numerical methods
+\end{itemize}
+The emphasis in this course is on the qualitative behaviour of dynamical
+systems, which for us will mean systems governed by differential or
+difference equations. We are not so much concerned about specific
+solutions, but rather how the system behaves for different choices of
+parameters or initial conditions.
+
+We will learn how to use \emph{phase portraits} and \emph{bifurcation
+diagrams}, special pictures that illustrate the dynamics of systems to
+interpret their behaviour, and we'll usually be using numerical methods to
+simulate our differential equations, as the types of equations encountered
+during modelling are rarely solvable analytically.
+
+\section{General systems}
+We are going to be concerned with systems of differential equations of the
+form 
+\begin{equation}
+    \begin{split}
+        \dot{x_1} &= f_1(x_1, \ldots, x_n) \\
+        &\vdots \\
+        \dot{x_n} &= f_n(x_1, \ldots, x_n)
+    \end{split}
+\end{equation}
+The overdots signify differentiation with respect to time $t$. These
+systems are known as systems of \emph{autonomous} differential equations,
+as there is no $t$ dependence in their right hand sides. Higher order
+differential equations, such as 
+\begin{equation*}
+    \ddot{x} + a\dot{x} + x = 0
+\end{equation*}
+can readily be put into this format by the standard trick of defining the
+variables $x_1 = x$, $x_2 = \dot{x}$. We then have the system
+\begin{equation*}
+    \begin{split}
+        \dot{x_1} &= x_2 \\
+        \dot{x_2} &= -x_1 - ax_2.
+    \end{split}
+\end{equation*}
+We just define our $x_i$ to be the $(i-1)$-th derivative of $x$,
+stopping one before we get to the highest order derivative present.
+
+\section{One-dimensional systems}
+Right. Let's start with the simplest case, just one differential equation
+in one variable,
+\begin{equation*}
+    \dot{x} = f(x).
+\end{equation*}
+In fact, let's start with a specific example,
+\begin{equation*}
+    \dot{x} = \sin x.
+\end{equation*}
+We are going to try to analyse this by developing some graphical methods,
+rather than relying on being able to solve it. Which, by the way, we could
+if we wanted to -- this happens to be a differential equation that
+\emph{does} have a closed-form solution. OK, let's do that real quick, just
+to remember how painful and tedious an exercise this is. We start by
+separating variables
+\begin{equation*}
+    \frac{1}{\sin x}\frac{dx}{dt} = 1
+\end{equation*}
+which gives
+\begin{equation*}
+    t = \int \csc x \, dx = \ln \abs{\csc x + \cot x} + C.
+\end{equation*}
+Putting in an initial condition $x(0) = x_0$ gives
+\begin{equation*}
+    t = \ln \abs{\frac{\csc{x_0} + \cot x_0}{\csc x + \cot x}}
+\end{equation*}
+Say something about that without getting a headache, I dare you. Can you
+tell me
+\begin{enumerate}
+    \item With $x_0 = 1$, describe what happens to the solution as $t \to
+        \infty$.
+    \item What happens to $x$ as $t \to \infty$ for an arbitrary initial
+        condition $x_0$?
+\end{enumerate}
+This kind of qualitative information is very difficult to glean from this
+closed-form solution. We need a better way.
+
+\section{A geometrical approach}
+Let's now imagine that our equation $\dot{x} = \sin x$ represents the
+velocity of a particle on the $x$ axis. When our particle is at position
+$x_0$, it has velocity $f(x_0)$, and if that's positive, it means it's
+going to zoom off in the positive $x$ direction, or, if it's negative, it
+will head left.
+
+        
+

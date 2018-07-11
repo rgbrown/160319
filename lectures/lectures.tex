@@ -1,0 +1,38 @@
+% For Screen-reading
+\documentclass[twocolumn, 10pt]{book}
+%\documentclass[a4paper,11pt]{book}
+% Also for Screen-reading
+%\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm, paperwidth=26cm,
+%paperheight=16.25cm]{geometry}
+%\setlength{\columnsep}{60pt}
+
+\include{headers}
+
+
+\usepackage{amsmath, amsthm}
+\usepackage[bookmarks, pdfborder={0 0 0}]{hyperref}
+\usepackage{graphicx}
+%\usepackage[boxed]{algorithm2e}
+%\usepackage{tikz}
+
+\setcounter{MaxMatrixCols}{20}
+
+% This document-specific commands
+\renewcommand{\chaptername}{Lecture}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+
+\title{160.319 Lectures} \author{Richard Brown}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\include{preliminaries}
+
+\end{document}
